@@ -1,0 +1,67 @@
+@import '_mixin.scss';
+@import 'common.scss';
+@function px($px) {
+    //$px为需要转换的字号
+    @return $px / $browser-default-font-size * 1rem*1px;
+}
+
+.wrap {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    // height: px(30);
+    text-align: center;
+    h1 {
+        background-color: rgb(205, 55, 103);
+        color: #fff;
+        padding: px(10);
+    }
+    ul {
+        @include flexlist;
+        li {
+            padding: px(5);
+            margin: px(10);
+            &.active {
+                color: rgb(205, 55, 103);
+                border-bottom: 1px solid rgb(205, 55, 103);
+            }
+        }
+    }
+}
+
+.main {
+    flex: 1;
+    #pullrefresh {
+        position: relative;
+        height: 100%;
+    }
+}
+
+#datashow {
+    &.pull {
+        li {
+            width: 45%;
+            display: inline-block;
+        }
+    }
+}
+
+.footer {
+    border-top: 1px solid #000;
+    padding: px(5) 0;
+    ul {
+        @include flexlist;
+        font-size: px(14);
+        i {
+            font-size: px(16);
+        }
+        li.active {
+            color: rgb(205, 55, 103);
+        }
+    }
+}
